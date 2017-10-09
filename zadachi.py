@@ -65,3 +65,39 @@ for x in range (0, my_len):
         polyndroms.append(total_umnosit[x])
 max(polyndroms)
 
+
+
+
+#zadacha5
+
+def prime_numbers(x):
+    k = 1
+    factor_list = []
+    while (x >= k):        
+        for n in range(2,100000) :
+            if (x%n == 0) :
+                factor_list.append(n)                
+                k = n
+                x = x/k
+                break
+    return (factor_list)
+
+list1 = []
+for number in range (2,21):
+    list2 = prime_numbers(number)
+    list3 = prime_numbers(number)
+    g = []
+    for x in range(0, len(list2)):
+        if (list2[x] in list1) :
+            g.append(list2[x])
+            list1.remove(list2[x])
+            list3.remove(list2[x])
+    list1 = list1+list3+g
+
+my_answer = 1
+for x in range (0, len(list1)):
+    my_answer = my_answer*list1[x]
+
+print my_answer
+
+

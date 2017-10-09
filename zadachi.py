@@ -100,4 +100,18 @@ for x in range (0, len(list1)):
 
 print my_answer
 
+#zadacha6
+
+number1 = 1
+for x in range (2,101):
+    number1 = number1+x*x
+
+number2 = 0
+for x in range (1,101) :
+    number2 = number2+x
+
+number2 = number2*number2
+number3 = number2-number1
+print(number3)
+
 

@@ -202,3 +202,18 @@ for x in range(0,986):
         the_bigest_prduct = some_product
 
 print the_bigest_prduct
+
+
+#zadacha9
+
+for a in range (1,999):
+    for b in range (1,999):
+        if a*a+b*b == (1000-a-b)*(1000-a-b):
+            number1 = a
+            number2 = b
+            number3 = 1000-a-b
+            break
+    
+my_answer = number1*number2*number3
+
+

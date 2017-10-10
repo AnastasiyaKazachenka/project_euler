@@ -114,4 +114,31 @@ number2 = number2*number2
 number3 = number2-number1
 print(number3)
 
+#zadacha7
+
+def prime_numbers(x):
+    k = 1
+    factor_list = []
+    while (x >= k) and (len(factor_list)<2):        
+        for n in range(2,2000000) :
+            if (x%n == 0) :
+                factor_list.append(n)                
+                k = n
+                x = x/k
+                break
+    return (factor_list)
+
+list_of_primes = [2]
+x = 3
+
+
+while len(list_of_primes) <10001:
+    k = prime_numbers(x)
+    if len(k) == 1:
+        list_of_primes.append(x)
+    x = x+2
+
+list_of_primes[10001]
+
+
 

@@ -141,4 +141,40 @@ while len(list_of_primes) <10001:
 list_of_primes[10001]
 
 
+#zadacha10
+import math
+def isPrime(x):
+    if (x == 1) :
+        return False
+    else:
+        if x <4 :
+            return True
+        else:
+            if x%2 == 0:
+                return False
+            else:
+                if x<9 :
+                    return True
+                else:
+                    if x%3 == 0:
+                        return False
+                    else:
+                        r = round(math.sqrt(x))
+                        f = 5
+                        while f<=r:
+                            if x%f == 0 :
+                                return False
+                            if x%(f+2) == 0 :
+                                return False
+                            f = f+6
+                        else:
+                            return True
+
+sum_of_primes = 2
+x = 3
+while x<2000000 :
+    if isPrime(x) == True :
+        sum_of_primes = sum_of_primes + x
+    x = x+2
+
 

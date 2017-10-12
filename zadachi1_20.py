@@ -263,5 +263,25 @@ answer = str(sum)
 answer[0:10]
 
 
+#zadacha14
+n=13
+max_count = 10
+
+list_of_smaller = []
+while n <1000000 :
+    count = 1
+    x = n
+    while x >1 :
+        if x%2 == 0:
+            x = x/2
+        else:
+            x = 3*x +1
+        count = count+1
+    if count > max_count :
+        max_count = count
+        first_number = n
+    n = n+2
+
+
 
 

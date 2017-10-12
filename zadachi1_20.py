@@ -131,6 +131,23 @@ for y in range(0, len(diagonal_list2)):
             the_bigest_prduct = number_to_check
 
 
+#zadacha12
+import math
+j=1
+x=0
+found=0
+
+while found==0:
+    x= x+j
+    j=j+1
+    devisors=0
+    for k in range(1,int(math.sqrt(x))):
+        if x%k == 0 :
+            devisors = devisors+1
+        if devisors>=250 :
+            found = 1
+            a = x
+
 #zadacha13
 
 

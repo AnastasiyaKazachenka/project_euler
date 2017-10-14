@@ -283,5 +283,51 @@ while n <1000000 :
     n = n+2
 
 
+#zadacha15
+def fuctorial(x):
+    k=1
+    for z in range(1,x+1):
+        k = k*z
+    return(k)
+    
+my_number = fuctorial(40)/(fuctorial(20)*fuctorial(20))
+
+
+
+#zadach16
+
+def stepen(number,stepen) :
+    k =0
+    l = 1
+    while k<stepen:
+        l = l*number
+        k = k+1
+    return (l)
+
+my_word = str(stepen(2,1000))
+my_number = 0
+for x in range(0,len(my_word)):
+    my_number = my_number + int(my_word[x])
+
+
+
+
+#zadacha20
+
+def fuctorial(x):
+    multiplication = 1
+    for k in range(1,x+1):
+        multiplication = multiplication*k
+    return(multiplication)
+        
+my_word = str(fuctorial(100))
+my_number = 0
+for x in range(0,len(my_word)):
+    my_number = my_number + int(my_word[x])
+
+
+
+
+
 
 

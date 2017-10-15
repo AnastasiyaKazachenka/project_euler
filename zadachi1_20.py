@@ -310,6 +310,38 @@ for x in range(0,len(my_word)):
     my_number = my_number + int(my_word[x])
 
 
+#zadacha17
+
+dict_1_9 = {1:len("one"), 2:len("two"), 3:len("three"), 4:len("four"), 5:len("five"), 6:len("six"), 7:len("seven"), 8:len("eight"), 9:len("nine")}
+dict_10_19 = {10:len("ten"), 11:len("eleven"), 12:len("twelve"), 13:len("thirteen"), 14:len("fourteen"), 15:len("fifteen"), 16:len("sixteen"), 17:len("seventeen"), 18:len("eighteen"), 19:len("nineteen")}
+dict_20_1000 = {20:len("twenty"), 30:len("thirty"), 40:len("forty"), 50:len("fifty"), 60:len("sixty"), 70:len("seventy"), 80:len("eighty"), 90:len("ninety"), 100:len("hundred"), 1000:len("thousand")}
+
+sum_1_9 = 0
+for x in range(1,10):
+    sum_1_9 = sum_1_9+dict_1_9[x]
+
+sum_10_19 = 0
+for x in range(10,20):
+    sum_10_19 = sum_10_19+dict_10_19[x]
+
+
+sum_20_100 = 0
+
+for x in range(20,100,10) :
+    sum_20_100 = sum_20_100+10*dict_20_1000[x]+sum_1_9
+
+
+
+sum_1_100 = sum_1_9+sum_10_19+sum_20_100
+sum_100_999 = 0
+for x in range(1,10):
+    sum_100_999 = sum_100_999 +100*dict_1_9[x]+100*dict_20_1000[100]+99*3+sum_1_100
+
+final = sum_1_100+sum_100_999+dict_20_1000[1000]+dict_1_9[1]
+
+
+
+
 
 
 #zadacha20

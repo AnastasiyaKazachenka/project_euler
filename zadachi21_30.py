@@ -1,3 +1,21 @@
+#zadacha21
+import math
+
+def dev_sum(x):
+    devisors_sum=1
+    for k in range(2,int(math.sqrt(x))):
+            if x%k == 0 :
+                devisors_sum = devisors_sum+k+x/k
+    return(devisors_sum)
+
+final_sum=0
+for x in range(2,10000):
+    sum_x_dev = dev_sum(x)
+    to_compare = dev_sum(sum_x_dev)
+    if x == to_compare and sum_x_dev != to_compare :
+        final_sum = final_sum+x
+
+
 #zadacha22
 
 from string import ascii_uppercase as al

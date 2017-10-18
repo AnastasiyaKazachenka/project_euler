@@ -17,3 +17,18 @@ for x in range(0, len(names)) :
         k = k+dic[names[x][y]] 
     final_number = k*(x+1)
     biggest = biggest+final_number
+
+    
+#zadacha25
+            
+x =1
+y =1
+counter = 2
+length_k = len(str(x))
+
+while length_k < 1000:
+    z = x+y
+    counter = counter+1
+    length_k = len(str(z))
+    x = y
+    y = z    

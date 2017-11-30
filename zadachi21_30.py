@@ -1,3 +1,21 @@
+#zadacha21
+import math
+
+def dev_sum(x):
+    devisors_sum=1
+    for k in range(2,int(math.sqrt(x))):
+            if x%k == 0 :
+                devisors_sum = devisors_sum+k+x/k
+    return(devisors_sum)
+
+final_sum=0
+for x in range(2,10000):
+    sum_x_dev = dev_sum(x)
+    to_compare = dev_sum(sum_x_dev)
+    if x == to_compare and sum_x_dev != to_compare :
+        final_sum = final_sum+x
+
+
 #zadacha22
 
 from string import ascii_uppercase as al
@@ -18,6 +36,7 @@ for x in range(0, len(names)) :
     final_number = k*(x+1)
     biggest = biggest+final_number
 
+<<<<<<< HEAD
 #zadacha23
 import math
 def find_devisors(some_number) :
@@ -65,3 +84,19 @@ for z in range (0, len(list_of_not_ab_sum)) :
     final_sum = final_sum+list_of_not_ab_sum[z]
 
 
+=======
+    
+#zadacha25
+            
+x =1
+y =1
+counter = 2
+length_k = len(str(x))
+
+while length_k < 1000:
+    z = x+y
+    counter = counter+1
+    length_k = len(str(z))
+    x = y
+    y = z    
+>>>>>>> e15cb3eb7978068758256ead6e2d1e06379ff4ab

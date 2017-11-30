@@ -380,7 +380,66 @@ for x in range(1, len(list_to_work)):
     list_to_work[x] = new_row
 
 
+    
+#zadacha19
 
+def vesokosnyi(year):
+    if year%100 == 0 :
+        if year%400 == 0:
+            result = True
+        else:
+            result = False
+    else:
+        if year%4 == 0 :
+            result = True
+        else:
+            result = False
+    return(result)
+           
+    
+month_day_in_visokosnyi = [31,29,31,30,31,30,31,31,30,31,30,31]    
+    
+month_day_in_normal = [31,28,31,30,31,30,31,31,30,31,30,31]    
+    
+first_of_month_visokosnyi = [1]
+for x in range (0,len(month_day_in_visokosnyi)-1):
+    first_of_month_visokosnyi.append(first_of_month_visokosnyi[x]+month_day_in_visokosnyi[x])
+    
+first_of_month_normal = [1]
+for x in range (0,len(month_day_in_normal)-1):
+    first_of_month_normal.append(first_of_month_normal[x]+month_day_in_normal[x])    
+    
+counter = 0
+x=365
+for year in range(1900,2001):
+    if vesokosnyi(year-1) :
+        differ = 366
+    else:
+        differ = 365        
+    x = x-differ
+    if vesokosnyi(year):
+        while x<366 :        
+            if x in first_of_month_visokosnyi:
+                counter = counter+1
+            x =x+7
+    else:        
+        while x<365 :        
+            if x in first_of_month_normal:
+                counter = counter+1
+            x =x+7
+        
+counter_1900 = 0
+x = 0
+while x<365 :
+    x =x+7
+    if x in first_of_month_normal:
+        counter_1900 = counter_1900+1    
+    
+final_number = counter-counter_1900  
+
+    
+    
+    
 #zadacha20
 
 def fuctorial(x):

@@ -100,3 +100,22 @@ while length_k < 1000:
     x = y
     y = z    
 >>>>>>> e15cb3eb7978068758256ead6e2d1e06379ff4ab
+
+
+======
+#zadacha26
+
+k=1
+z=1
+for d in range(1,1000) :
+    values = []
+    x=10-d*(10//d)
+    while x not in values :
+        values.append(x)    
+        x=10*x-d*(10*x//d)
+    if 0 not in values :
+        if len(values) > z :
+            k=d
+            z=len(values)
+            
+

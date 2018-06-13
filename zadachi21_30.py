@@ -118,4 +118,66 @@ for d in range(1,1000) :
             k=d
             z=len(values)
             
+#zadacha 27
 
+import math
+def isPrime(x):
+    if (x == 1) :
+        return False
+    else:
+        if x <4 :
+            return True
+        else:
+            if x%2 == 0:
+                return False
+            else:
+                if x<9 :
+                    return True
+                else:
+                    if x%3 == 0:
+                        return False
+                    else:
+                        r = round(math.sqrt(x))
+                        f = 5
+                        while f<=r:
+                            if x%f == 0 :
+                                return False
+                            if x%(f+2) == 0 :
+                                return False
+                            f = f+6
+                        else:
+                            return True
+    
+b=1
+my_primes = []
+while b<1000 :
+    if isPrime(b) == True:
+        my_primes.append(b)
+    b=b+1
+    
+pot_a=[]
+pot_b=[]
+for a in range(1,1000):
+    for b in my_primes :
+        if isPrime(a+b+1)==True:
+            pot_a.append(a)
+            pot_b.append(b)
+        if isPrime(-a+b+1)==True and (-a+b+1) > 0:
+            pot_a.append(-a)
+            pot_b.append(b)
+
+final_a=pot_a
+final_b=pot_b
+n=2
+while len(final_a) > 1:
+    pot_a=[]
+    pot_b=[]
+    for k in range(1,len(final_a)):
+        if isPrime(n*n+final_a[k]*n+final_b[k])==True and (n*n+final_a[k]*n+final_b[k]) > 0:
+            pot_a.append(final_a[k])
+            pot_b.append(final_b[k])
+    final_a=pot_a
+    final_b=pot_b
+    n=n+1
+
+final_a[0]*final_b[0]

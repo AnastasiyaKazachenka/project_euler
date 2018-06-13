@@ -203,3 +203,16 @@ for a in range(2,101) :
         k=math.pow(a,b)
         if k not in my_list:
             my_list.append(k)
+
+            
+#zadacha30
+all_numb=[]
+sum=0
+for x in range(2,500000) :
+    my_word = str(x)
+    my_number=0
+    for n in range(0,len(my_word)):
+        my_number = my_number+int(my_word[n])**5
+    if my_number==x :
+        all_numb.append(x)
+        sum=sum+x            

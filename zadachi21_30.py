@@ -181,3 +181,15 @@ while len(final_a) > 1:
     n=n+1
 
 final_a[0]*final_b[0]
+
+#zadacha28
+
+x=3    
+a=list(range(x-1,x*x+1))
+sum=1
+while x<=1001 :
+    k=list(range(x-2,len(a),x-1))
+    for n in range(0,4) :
+        sum = sum+a[k[n]]
+    x=x+2
+    a=list(range(a[-1]+1,(x*x+1)))

@@ -193,3 +193,13 @@ while x<=1001 :
         sum = sum+a[k[n]]
     x=x+2
     a=list(range(a[-1]+1,(x*x+1)))
+
+    
+#zadacha29
+import math
+my_list=[]
+for a in range(2,101) :
+    for b in range(2,101) :
+        k=math.pow(a,b)
+        if k not in my_list:
+            my_list.append(k)

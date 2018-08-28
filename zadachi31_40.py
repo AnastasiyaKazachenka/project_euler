@@ -23,3 +23,22 @@ coin=[2,5,10,20,50,100,200]
 for c in coin:
     for i in range(c,201):
         a[i]+=a[i-c]
+
+      
+      
+#zadacha32
+        
+import itertools
+
+counter=[]
+
+a=list(itertools.permutations(range(1,10)))
+
+for x in range(0,len(a)-1):
+    if a[x][0]*(a[x][1]*1000+a[x][2]*100+a[x][3]*10+a[x][4])==a[x][5]*1000+a[x][6]*100+a[x][7]*10+a[x][8] :
+        counter.append(a[x][5]*1000+a[x][6]*100+a[x][7]*10+a[x][8])
+    if (a[x][0]*10+a[x][1])*(a[x][2]*100+a[x][3]*10+a[x][4])==a[x][5]*1000+a[x][6]*100+a[x][7]*10+a[x][8] :
+        counter.append(a[x][5]*1000+a[x][6]*100+a[x][7]*10+a[x][8])
+
+counter=set(counter)
+sum(counter)

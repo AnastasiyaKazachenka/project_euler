@@ -93,3 +93,34 @@ answer=1
 for x in down_mnoz:
     answer = answer*x
 
+      
+#zadacha34
+import math
+import itertools
+
+a=list(range(0,10))
+b = [math.factorial(x) for x in a]
+for x in range(0,len(a)):
+    a[x]=str(a[x])
+
+
+dd = dict(zip(a,b))
+
+
+x=1
+y=362880
+
+while x<len(str(y)) :
+    x= x+1
+    y=y+362880
+
+my_lists = []
+for numb in range(11,y+1):
+    numb_break = list(str(numb))
+    my_sum = 0
+    for ff in numb_break:
+        my_sum=my_sum+dd[ff]
+    if my_sum==numb :
+        my_lists.append(numb)
+
+sum(my_lists) 

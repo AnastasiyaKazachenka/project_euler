@@ -124,3 +124,52 @@ for numb in range(11,y+1):
         my_lists.append(numb)
 
 sum(my_lists) 
+
+
+#zadacha35
+import math
+import itertools
+from collections import deque
+def isPrime(x):
+    if (x == 1) :
+        return False
+    else:
+        if x <4 :
+            return True
+        else:
+            if x%2 == 0:
+                return False
+            else:
+                if x<9 :
+                    return True
+                else:
+                    if x%3 == 0:
+                        return False
+                    else:
+                        r = round(math.sqrt(x))
+                        f = 5
+                        while f<=r:
+                            if x%f == 0 :
+                                return False
+                            if x%(f+2) == 0 :
+                                return False
+                            f = f+6
+                        else:
+                            return True
+
+my_primes=[]  
+for x in range(1,1000000) :
+    if isPrime(x)==True :
+        k=[int(y) for y in str(x)]
+        a=deque(k)
+        zz=[]
+        for x in range(len(a)):
+            a.rotate(1)
+            zz.append(list(a))
+        counter=0
+        for n in range(0,len(zz)) :
+            number = int("".join([str(y) for y in zz[n]]))
+            if isPrime(number)==False :
+                counter=1
+        if counter==0:
+            my_primes.append(x)

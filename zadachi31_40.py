@@ -42,3 +42,54 @@ for x in range(0,len(a)-1):
 
 counter=set(counter)
 sum(counter)
+
+#zadacha 33
+
+a=list(range(10,98))
+up=[]
+down=[]
+
+for x in a :
+    if x%10 != 0 :
+        first_n = x//10
+        second_n = x%10
+        for z in range(1,10) :
+            if (x/(z*10+first_n)==second_n/z and second_n/z<1) :
+                up.append(x)            
+                down.append(z*10+first_n)
+            if (x/(second_n*10+z)==first_n/z and first_n/z<1) :
+                up.append(x)            
+                down.append(second_n*10+z)
+
+
+def prime_numbers(x):
+    k = 1
+    factor_list = []
+    while (x >= k):        
+        for n in range(2,100000) :
+            if (x%n == 0) :
+                factor_list.append(n)                
+                k = n
+                x = x/k
+                break
+    return (factor_list)
+
+up_pr=1
+for x in up:
+    up_pr = up_pr*x
+    
+down_pr=1
+for x in down:
+    down_pr = down_pr*x
+
+up_mnoz = prime_numbers(up_pr)
+down_mnoz = prime_numbers(down_pr)
+
+for x in range(0,len(up_mnoz)) :
+    if up_mnoz[x] in down_mnoz :
+        down_mnoz.remove(up_mnoz[x])
+
+answer=1
+for x in down_mnoz:
+    answer = answer*x
+

@@ -196,3 +196,53 @@ for x in range(1,1000000):
             polyndroms.append(x)
 
 sum(polyndroms)
+
+
+#zadacha37
+import math
+def isPrime(x):
+    if (x == 1) :
+        return False
+    else:
+        if x <4 :
+            return True
+        else:
+            if x%2 == 0:
+                return False
+            else:
+                if x<9 :
+                    return True
+                else:
+                    if x%3 == 0:
+                        return False
+                    else:
+                        r = round(math.sqrt(x))
+                        f = 5
+                        while f<=r:
+                            if x%f == 0 :
+                                return False
+                            if x%(f+2) == 0 :
+                                return False
+                            f = f+6
+                        else:
+                            return True
+                        
+x=23
+my_numbers=[]
+
+while len(my_numbers) <11 :
+    if isPrime(x)==True:
+        x2=str(x)
+        numb=[]
+        for a in range(1,len(x2)) :
+            numb.append(x2[a:])
+            numb.append(x2[:-a])
+        counter=0
+        for b in numb :
+            if isPrime(int(b))==False :
+                counter=counter+1
+        if counter==0 :
+            my_numbers.append(x)
+    x=x+2
+
+sum(my_numbers)

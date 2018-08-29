@@ -173,3 +173,26 @@ for x in range(1,1000000) :
                 counter=1
         if counter==0:
             my_primes.append(x)
+
+            
+#zadacha36
+
+def dec_to_bin(x):
+    return int(bin(x)[2:])
+
+def reversed_string(a_string):
+    return a_string[::-1]
+
+polyndroms = []
+for x in range(1,1000000):
+    x2=x
+    a = str(x2)
+    b = reversed_string(a)
+    if (a==b) :
+        g=dec_to_bin(x)
+        g=str(g)
+        h=reversed_string(g)
+        if g==h :
+            polyndroms.append(x)
+
+sum(polyndroms)

@@ -1,0 +1,12 @@
+#find common lowest determinator for list of numbers
+n = False
+x=1         
+while n != True :
+    den=down[0]*x
+    a=0
+    for numb in range(0,len(down)) :
+        a=a+den%down[numb]
+    if a==0 :
+        n=True
+    else:
+        x=x+1

@@ -74,7 +74,22 @@ for x in my_numbers:
     if x in triangle_numb:
         counter=counter+1
         
-    
+#zadacha43
+import itertools
+my_list=[0,1,2,3,4,5,6,7,8,9]
+a=list(itertools.permutations(my_list))
+for n in range(0,len(a)):
+    a[n]= "".join([str(y) for y in a[n]])
+
+devisors = [2,3,5,7,11,13,17]
+my_sum=0
+for x in range(0,len(a)):
+    to_add=0
+    for y in range(0,7):
+        if int(a[x][(1+y):(4+y)])%devisors[y]==0:
+            to_add=to_add+1
+    if to_add==7 :
+        my_sum=my_sum+int(a[x])    
     
 #zadacha48
 

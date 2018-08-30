@@ -309,3 +309,18 @@ while p<=1000:
         counter=len(all_options)
         answer=p
     p=p+1
+   
+
+   
+#zadacha40
+
+my_number = ""
+x=1
+
+while len(my_number)<=1000000 :
+    my_number=my_number+str(x)
+    x=x+1
+    
+int(my_number[0])*int(my_number[9])*int(my_number[99])*int(my_number[999])*int(my_number[9999])*int(my_number[99999])*int(my_number[999999])
+    
+    

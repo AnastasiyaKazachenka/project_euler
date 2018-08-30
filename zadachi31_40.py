@@ -246,3 +246,43 @@ while len(my_numbers) <11 :
     x=x+2
 
 sum(my_numbers)
+
+#zaddacha38
+
+def isPandigital(my_numb) :
+    x=sorted([int(i) for i in str(my_numb)])
+    answer=True
+    for y in range(0,len(x)-1):
+        if x[y] != x[y+1]-1 :
+            answer=False
+    return(answer)
+            
+def isPanMult(my_numb) :        
+    n=1
+    pund=""
+    while len(pund)<9 :
+        x=my_numb*n
+        pund=pund+str(x)
+        if len(pund)==9 :
+            to_add=isPandigital(int(pund))
+        if len(pund)>9 :
+            to_add=False
+        n=n+1
+    return(to_add)
+
+def PanMult(my_numb):
+    n=1
+    pund=""
+    while len(pund)<9 :
+        x=my_numb*n
+        pund=pund+str(x)
+        n=n+1
+    return(int(pund))
+    
+answer=918273645
+x=10
+while x<9999 :
+    if isPanMult(x)==True:
+        if PanMult(x)>answer:
+            answer=PanMult(x)
+    x=x+1

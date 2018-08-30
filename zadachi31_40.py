@@ -286,3 +286,26 @@ while x<9999 :
         if PanMult(x)>answer:
             answer=PanMult(x)
     x=x+1
+   
+   
+   
+#zadacha39
+    
+counter=1
+answer=120
+p=120
+while p<=1000:
+    c=1
+    all_options=[]
+    while c<p-c :
+        a=1
+        while a<=(p-c)/2 :
+            b=p-a-c
+            if a*a+b*b==c*c :
+                all_options.append([a,b,c])
+            a=a+1
+        c=c+1
+    if len(all_options) >counter:
+        counter=len(all_options)
+        answer=p
+    p=p+1

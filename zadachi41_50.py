@@ -96,7 +96,6 @@ for x in range(0,len(a)):
 import math
 n=4
 pot_list=[]
-answer=False
 
 while len(pot_list)<1 :
     b=n*(3*n-1)/2
@@ -112,6 +111,25 @@ while len(pot_list)<1 :
         if k in bigger and kk in smaller:
             pot_list.append([b,k,kk])
     n=n+1         
+
+    
+#zadacha45
+n=144
+pot_list=[]
+while len(pot_list)<1 :
+     H=n*(2*n-1)
+     p_numb=[]
+     t_numb=[]
+     for y in range(n,math.ceil(math.sqrt(2*H/3))+1):
+         p_numb.append(y*(3*y-1)/2)
+     if H in p_numb :
+         for y in range(n+p_numb.index(H),math.ceil(math.sqrt(2*H))+2):
+             t_numb.append(y*(y+1)/2)
+         if H in t_numb:
+             pot_list.append(H)
+     n=n+1     
+    
+
     
     
 #zadacha48

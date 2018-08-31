@@ -176,7 +176,23 @@ while len(answer)<1:
     n=n+2
     
     
+#zadacha47
+ 
+import math        
+from sympy.ntheory import primefactors
+ 
+answer=[]
+n=210
 
+while len(answer)<1:
+    if len(set(primefactors(n))) == 4 :
+        if len(set(primefactors(n+1))) == 4 :
+            if len(set(primefactors(n+2))) == 4 :
+                if len(set(primefactors(n+3))) == 4 :
+                    answer.append([n,n+1,n+2,n+3])
+    n=n+1
+
+    
     
 #zadacha48
 
@@ -191,7 +207,54 @@ for n in range(1,1001):
 number = str(sum)
 number[-10:]
 
+ #zadacha49
+ 
+import itertools
+import math
+def isPrime(x):
+    if (x == 1) :
+        return False
+    else:
+        if x <4 :
+            return True
+        else:
+            if x%2 == 0:
+                return False
+            else:
+                if x<9 :
+                    return True
+                else:
+                    if x%3 == 0:
+                        return False
+                    else:
+                        r = round(math.sqrt(x))
+                        f = 5
+                        while f<=r:
+                            if x%f == 0 :
+                                return False
+                            if x%(f+2) == 0 :
+                                return False
+                            f = f+6
+                        else:
+                            return True
 
+answer=[]
+for x in range(1488,9999-6660):
+    if isPrime(x)==True:
+        if isPrime(x+3330) == True:
+            if isPrime(x+6660) == True :
+                answer.append([x,x+3330,x+6660])
+
+answer2=[]
+for x in range(0,len(answer)) :
+    a=list(itertools.permutations([int(z) for z in str(answer[x][0])]))
+    for n in range(0,len(a)):
+        a[n]= int("".join([str(y) for y in a[n]]))
+    if answer[x][1] in a:
+        if answer[x][2] in a:
+            answer2.append(answer[x])
+    
+ answer3="".join([str(y) for y in answer2[0]])
 
 #zadacha50
 

@@ -131,6 +131,52 @@ while len(pot_list)<1 :
     
 
     
+#zadacha46
+import math
+def isPrime(x):
+    if (x == 1) :
+        return False
+    else:
+        if x <4 :
+            return True
+        else:
+            if x%2 == 0:
+                return False
+            else:
+                if x<9 :
+                    return True
+                else:
+                    if x%3 == 0:
+                        return False
+                    else:
+                        r = round(math.sqrt(x))
+                        f = 5
+                        while f<=r:
+                            if x%f == 0 :
+                                return False
+                            if x%(f+2) == 0 :
+                                return False
+                            f = f+6
+                        else:
+                            return True
+
+answer=[]
+n=33
+while len(answer)<1:
+    if isPrime(n)==False:
+        k=n-2
+        z=0
+        while k>=2 and z<1:
+            if isPrime(k)==True:
+                if math.sqrt((n-k)/2)%1==0 :
+                    z=z+1
+            k=k-2
+        if z==0:
+            answer.append(n)
+    n=n+2
+    
+    
+
     
 #zadacha48
 

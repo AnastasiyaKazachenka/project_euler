@@ -91,6 +91,29 @@ for x in range(0,len(a)):
     if to_add==7 :
         my_sum=my_sum+int(a[x])    
     
+
+#zadacha44
+import math
+n=4
+pot_list=[]
+answer=False
+
+while len(pot_list)<1 :
+    b=n*(3*n-1)/2
+    smaller=[]
+    bigger=[]
+    for x in range(1,n):
+        smaller.append(x*(3*x-1)/2)
+    for y in range(n,math.ceil(math.sqrt(3*n*n-n+1))):
+        bigger.append(y*(3*y-1)/2)
+    for y in range(1,len(smaller)) :
+        k=b+smaller[y]
+        kk=b-smaller[y]
+        if k in bigger and kk in smaller:
+            pot_list.append([b,k,kk])
+    n=n+1         
+    
+    
 #zadacha48
 
 sum = 0

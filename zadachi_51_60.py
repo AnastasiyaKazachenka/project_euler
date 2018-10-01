@@ -57,3 +57,21 @@ while True:
             print(prime(n))
             break
     n=n+1
+    
+    
+    #zadacha52
+
+n=100000
+while True:
+    x1=n
+    a=sorted([int(d) for d in str(x1)])
+    x2=sorted([int(d) for d in str(2*x1)])
+    x3=sorted([int(d) for d in str(3*x1)])
+    x4=sorted([int(d) for d in str(4*x1)])
+    x5=sorted([int(d) for d in str(5*x1)])
+    x6=sorted([int(d) for d in str(6*x1)])
+    if a==x2 and a==x3 and a==x4 and a==x5 and a==x6:
+        print(n)
+        break
+    n=n+1
+

@@ -85,3 +85,35 @@ for n in range(1,101):
     for r in range(1,n+1):
         if math.factorial(n)/(math.factorial(r)*math.factorial(n-r)) >1000000 :
             counter=counter+1
+
+            
+#zadacha55
+
+def reversed_string(a_string):
+    return a_string[::-1]
+
+def isPolyndrome (my_numb):
+    a = str(my_numb)
+    b = reversed_string(a)
+    if (a==b) :
+        return(True)
+    else:
+        return(False)
+
+counter=0
+my_numb=1
+while my_numb<10001:
+    n=0
+    z=my_numb
+    while n<51:
+        my_numb_pol = int(reversed_string(str(z)))
+        if isPolyndrome(z+my_numb_pol)==True:
+            counter = counter+1
+            n=52
+        else:
+            z=z+my_numb_pol
+            n=n+1
+    my_numb=my_numb+1
+    
+10000-counter
+           

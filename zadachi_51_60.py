@@ -116,4 +116,12 @@ while my_numb<10001:
     my_numb=my_numb+1
     
 10000-counter
-           
+
+
+#zadacha56
+n=1
+for a in range(1,100) :
+    for b in range(1,100) :
+        c=sum([int(d) for d in str(a**b)])
+        if c>n :
+            n=c

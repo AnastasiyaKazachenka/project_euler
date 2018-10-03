@@ -125,3 +125,20 @@ for a in range(1,100) :
         c=sum([int(d) for d in str(a**b)])
         if c>n :
             n=c
+
+#zadacha57
+
+n=3
+d=2
+z=1
+counter =[]
+
+while z<1000:
+    n=n+d
+    n1=n
+    n=d
+    d=n1
+    n=n+d
+    if len(str(n))>len(str(d)):
+        counter.append([n,d])
+    z=z+1            

@@ -142,3 +142,57 @@ while z<1000:
     if len(str(n))>len(str(d)):
         counter.append([n,d])
     z=z+1            
+
+    
+ import math
+def isPrime(x):
+    if (x == 1) :
+        return False
+    else:
+        if x <4 :
+            return True
+        else:
+            if x%2 == 0:
+                return False
+            else:
+                if x<9 :
+                    return True
+                else:
+                    if x%3 == 0:
+                        return False
+                    else:
+                        r = round(math.sqrt(x))
+                        f = 5
+                        while f<=r:
+                            if x%f == 0 :
+                                return False
+                            if x%(f+2) == 0 :
+                                return False
+                            f = f+6
+                        else:
+                            return True
+
+
+a=1
+x=2
+z=62
+r_primes_total=0
+my_total=1
+
+while z>10:
+    my_list=[]
+    my_list.append(a+x)
+    my_list.append(a+2*x)
+    my_list.append(a+3*x)
+    my_list.append(a+4*x)
+    r_primes=0
+    for numb in my_list :
+        if isPrime(numb) :
+            r_primes=r_primes+1   
+    r_primes_total = r_primes_total+r_primes
+    my_total=my_total+len(my_list)
+    z=100*(r_primes_total)/(my_total)
+    a=a+4*x
+    x=x+2
+
+print(x-1)  

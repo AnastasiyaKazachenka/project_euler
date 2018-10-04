@@ -86,6 +86,143 @@ for n in range(1,101):
         if math.factorial(n)/(math.factorial(r)*math.factorial(n-r)) >1000000 :
             counter=counter+1
 
+#zadacha54
+high_card = (["2"],["3"],["4"],["5"],["6"],["7"],["8"],["9"],["T"],["J"],["Q"],["K"],["A"])
+one_pair = (["2","2"],["3","3"],["4","4"],["5","5"],["6","6"],["7","7"],["8","8"],["9","9"],["T","T"],["J","J"],["Q","Q"],["K","K"],["A","A"])
+two_pairs = []
+for x in range(0,len(one_pair)) :
+    for y in range(x,len(one_pair)) :
+        if x != y :
+            two_pairs.append(one_pair[x]+one_pair[y])
+
+two_pairs=[sorted(x) for x in two_pairs]
+           
+three_cards = (["2","2","2"],["3","3","3"],["4","4","4"],["5","5","5"],["6","6","6"],["7","7","7"],["8","8","8"],["9","9","9"],["T","T","T"],["J","J","J"],["Q","Q","Q"],["K","K","K"],["A","A","A"])
+straight_cards=(["2","3","4","5","6"],["3","4","5","6","7"],["4","5","6","7","8"],["5","6","7","8","9"],["6","7","8","9","T"],["7","8","9","T","J"],["8","9","T","J","Q"],["9","T","J","Q","K"],["T","J","Q","K","A"])
+straight_cards=[sorted(x) for x in straight_cards]
+
+flush = (["H","H","H","H","H"],["C","C","C","C","C"],["S","S","S","S","S"],["D","D","D","D","D"])
+full_house=[]
+for x in range(0,len(one_pair)) :
+    for y in range(0,len(one_pair)) :
+        if x != y :
+            full_house.append(one_pair[x]+three_cards[y])
+
+full_house=[sorted(x) for x in full_house]
+            
+four_cards = (["2","2","2","2"],["3","3","3","3"],["4","4","4","4"],["5","5","5","5"],["6","6","6","6"],["7","7","7","7"],["8","8","8","8"],["9","9","9","9"],["T","T","T","T"],["J","J","J","J"],["Q","Q","Q","Q"],["K","K","K","K"],["A","A","A","A"])
+
+poker_hands = [high_card,one_pair,two_pairs,three_cards,straight_cards,full_house,four_cards]
+
+
+
+def find_hands(zz,cc) :
+    zz=sorted(zz)
+    cc_copy=cc[:]
+    counter=0
+    for x in range(0,len(zz)):
+        if zz[x] in cc_copy:
+            counter=counter+1
+            cc_copy.remove(zz[x])
+    if counter==len(cc) :
+        return(True)
+    else:
+        return(False)
+
+def find_combinations(list1) :
+    list_to_give=[]
+    for x in range(len(poker_hands)-1,-1,-1) :
+        for y in range(len(poker_hands[x])-1,-1,-1) :
+            if find_hands(list1,poker_hands[x][y])==True:
+                list_to_give.append(poker_hands[x][y])
+    return(list_to_give)
+
+
+def find_highest_combinations(list1) :
+    for x in range(len(poker_hands)-1,-1,-1) :
+        for y in range(len(poker_hands[x])-1,-1,-1) :
+            if find_hands(list1,poker_hands[x][y])==True:
+                return([poker_hands[x][y],poker_hands.index(poker_hands[x]),poker_hands[x].index(poker_hands[x][y])])
+                break
+
+match_to_pokerhands = {0:"high_card",1:"one_pair",2:"two_pairs",3:"three_cards",4:"straight_cards",5:"full_house",6:"four_cards"}
+pokerhands_points = {"high_card":1,"one_pair":2,"two_pairs":3,"three_cards":4,"straight_cards":5,"flush":5,"full_house":7,"four_cards":8,"straight_flush":4,"royal_flush":1}
+
+def player_points(list1):
+    p1=list1
+    if p1[1] in flush :
+        a=find_combinations(p1[0])
+        p1_points=[]
+        for x in range(0,len(a)) :
+            zz=find_highest_combinations(a[x])
+            if zz[1] != 0 and zz[1] != 4:
+                l=pokerhands_points[match_to_pokerhands[zz[1]]]
+            if zz[1] == 0 :
+                l=pokerhands_points[match_to_pokerhands[zz[1]]]+5
+            if zz[1] == 4 and zz[2] == 8 :
+                l=pokerhands_points[match_to_pokerhands[zz[1]]]+5
+            if zz[1] == 4 and zz[2] != 8 :
+                l=pokerhands_points[match_to_pokerhands[zz[1]]]+4
+            p1_points.append([l,zz[2]])
+    else :
+        a=find_combinations(p1[0])
+        p1_points=[]
+        for x in range(0,len(a)) :
+            zz=find_highest_combinations(a[x])
+            l=pokerhands_points[match_to_pokerhands[zz[1]]]
+            p1_points.append([l,zz[2]])
+    return(p1_points)
+
+import urllib
+txt = urllib.request.urlopen("https://projecteuler.net/project/resources/p054_poker.txt").read()
+txt = txt.decode("utf-8")
+txt=txt.split("\n")
+txt_2=[x.split(" ") for x in txt]
+
+
+player1=[]
+for x in range(0,len(txt_2)-1) :
+    value=[]
+    suit=[]
+    for y in range(0,int(len(txt_2[x])/2)):
+        value.append(txt_2[x][y][0])
+        suit.append(txt_2[x][y][1])
+    player1.append([value,suit])
+
+player2=[]
+for x in range(0,len(txt_2)-1) :
+    value=[]
+    suit=[]
+    for y in range(5,10):
+        value.append(txt_2[x][y][0])
+        suit.append(txt_2[x][y][1])
+    player2.append([value,suit])       
+        
+player1_win=0
+player2_win=0
+
+for x in range(0,1000) :
+    player1_points=player_points(player1[x])
+    player2_points=player_points(player2[x])
+    p1=player1_points[0]
+    p2=player2_points[0]
+    x=1
+    while p1==p2 :
+        p1=player1_points[x]
+        p2=player2_points[x]
+        x=x+1
+    if p1[0]>p2[0] :
+        player1_win=player1_win+1
+    elif p1[0]== p2[0] :
+        if p1[1] > p2[1] :
+            player1_win=player1_win+1
+        else :
+            player2_win=player2_win+1
+    else:
+        player2_win=player2_win+1
+            
+            
+            
             
 #zadacha55
 

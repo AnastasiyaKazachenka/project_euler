@@ -281,6 +281,7 @@ while z<1000:
     z=z+1            
 
     
+ #zadacha58
  import math
 def isPrime(x):
     if (x == 1) :
@@ -333,3 +334,60 @@ while z>10:
     x=x+2
 
 print(x-1)  
+
+
+#zadacha59
+import string
+my_letters = [x for x in string.ascii_lowercase]
+key_combinations=[]
+
+for x in my_letters :
+    for y in my_letters :
+        for z in my_letters:
+            key_combinations.append(x+y+z)
+
+key_combinations_for_xor = []
+
+for x in key_combinations :
+    code=[]
+    for y in x :
+        code.append(ord(y))
+    key_combinations_for_xor.append(code)
+
+txt = urllib.request.urlopen("https://projecteuler.net/project/resources/p059_cipher.txt").read()
+txt=txt.decode()
+txt=txt.split(",")
+txt[-1]="73"
+txt=[int(x) for x in txt]
+
+
+def decrypt(text,key) :
+    a=key
+    x=0
+    while len(a)<1201 :
+        if x < 3:
+            a.append(a[x])
+            x=x+1
+        if x ==3 :
+            x=0
+    my_decrypt = []
+    for x in range(0,1201) :
+        my_decrypt.append(chr(text[x]^a[x]))
+    my_text="".join(n for n in my_decrypt)
+    return(my_text)
+
+possible_decrypts =[]
+
+for x in range(0,len(key_combinations_for_xor)):
+    possible_decrypts.append(decrypt(txt,key_combinations_for_xor[x]))
+
+
+d=[]
+for x in range(0, len(possible_decrypts)) :
+    if " the " in possible_decrypts[x] :
+        d.append(possible_decrypts[x])
+
+final_txt=d[0]
+my_sum=0
+for x in range(0,len(final_txt)):
+    my_sum=my_sum+ord(final_txt[x])

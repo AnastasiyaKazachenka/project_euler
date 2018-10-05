@@ -391,3 +391,31 @@ final_txt=d[0]
 my_sum=0
 for x in range(0,len(final_txt)):
     my_sum=my_sum+ord(final_txt[x])
+    
+    
+    
+    
+    
+  #zadacha60
+import sympy.ntheory    
+       
+a=list(sympy.ntheory.generate.primerange(3, 10000))
+
+
+def makes_prime(x,y) :
+    if sympy.ntheory.primetest.isprime(int(str(x)+str(y))) and sympy.ntheory.primetest.isprime(int(str(y)+str(x))):
+        return(True)
+    else:
+        return(False)
+
+for x in range(0,len(a)) :
+    for y in range(x+1,len(a)):
+        if makes_prime(a[x],a[y]) :
+            for z in range(y+1,len(a)) :
+                if makes_prime(a[x],a[z]) and makes_prime(a[y],a[z]):
+                    for k in range(z+1,len(a)) :
+                        if makes_prime(a[x],a[k]) and makes_prime(a[y],a[k]) and makes_prime(a[z],a[k]):
+                            for l in range(k+1,len(a)) :
+                                if makes_prime(a[x],a[l]) and makes_prime(a[y],a[l]) and makes_prime(a[z],a[l]) and makes_prime(a[k],a[l]):
+                                    answer=[a[x],a[y],a[z],a[k],a[l]]
+                                    break

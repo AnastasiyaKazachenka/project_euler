@@ -145,7 +145,20 @@ matrix=[[1,3,5,8],[4,25,7,-55],[6,-5,10,9],[2,2,2,2]]
 
 determinant = calculate_determinant(matrix)
 print("Determinant = " + str(determinant))
- 
+
+
+
+Task4
+all_sums=[]
+
+for x in range(1,13) :
+   for y in range(1,13) :
+      all_sums.append(x+y)
+      
+my_sum = int(input("What sum do you want to know the possibility for?"))
+my_possibility=100*all_sums.count(my_sum)/len(all_sums)
+
+print("the possibility to get " + str(my_sum) + " is " + str(my_possibility) +"%")
  
       
         

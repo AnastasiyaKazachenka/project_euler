@@ -78,13 +78,14 @@ def is_day_off(date_int) :
       print(date_int + " is a weekend or holiday")
       print("TRUE")
    else : 
+      print(date_int + " is a working day")
       print("FALSE")
    
    
 is_day_off("2023-01-03")
 is_day_off("2023-01-01")
 is_day_off("2023-1-1")
-is_day_off("2023-5-9")
+is_day_off("2023-05-9")
 is_day_off("2023-05-8")
 
 print(holidays)

@@ -1,0 +1,62 @@
+class Book:
+  def __init__(book, title, author,isbn, available):
+    book.title = title
+    book.author = author
+    book.isbn = isbn
+    book.available = available
+    
+  def take_book(book,patron) :
+    book.patron = patron
+    book.available="FALSE"
+   
+  def return_book(book) :
+    book.available="TRUE"
+
+class Author:
+  def __init__(author, name, birth_year, nationality):
+    author.name = name
+    author.birth_year = birth_year
+    author.nationality = nationality
+
+class Patron:
+  def __init__(patron, name, library_card_number):
+    patron.name = name
+    patron.library_card_number = library_card_number
+    patron.books=[]
+      
+  def check_out_book(patron,book) :
+    patron.books.append(book)
+       
+  def return_book(patron,book) :
+    patron.books.remove(book)
+    
+    
+patron1 = Patron("James", 1)
+patron2 = Patron("Jack", 2)
+author1 = Author("JD Salinger", 1919, "American")
+book1 = Book("The Cathcer in the Rye", author1, "123", "TRUE")
+author2=Author("G Orwell", 1903, "British")
+book2 = Book("Nineteen Eighty-Four", author2, "456", "TRUE")
+
+
+def give_a_book (book, patron):
+   if book.available == "TRUE" :
+      book.take_book(patron)
+      patron.check_out_book(book.title)
+      print(patron.name + " took " + book.title)
+   else :
+         print(book.title + " was taken by " + book.patron.name + " card number " + str(patron.library_card_number))
+
+give_a_book(book1,patron1)
+give_a_book(book2,patron1)
+print(patron1.books)
+   
+give_a_book(book1,patron2)
+
+patron1.return_book(book1.title)
+book1.return_book()
+print(patron1.books)
+
+give_a_book(book1,patron2)
+   
+print(patron2.books)
